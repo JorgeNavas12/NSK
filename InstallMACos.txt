@@ -1,6 +1,8 @@
 sudo /usr/libexec/PlistBuddy -c "add email string dlopez@avalvc.com.co" /Library/Managed\ Preferences/template.plist
 
-cd /Library/Managed Preferences
+cd /Library/Managed\ Preferences/
+
+sudo touch mac_mdm_installconfig.sh
 
 sudo xattr -d com.apple.quarantine ./mac_mdm_installconfig.sh
 
