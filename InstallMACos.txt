@@ -1,13 +1,24 @@
-sudo /usr/libexec/PlistBuddy -c "add email string dlopez@avalvc.com.co" /Library/Managed\ Preferences/template.plist
+#Crear template plist, cambiar variable correo@correo.com por el correo completo del usuario que aparece en Netskope
+sudo /usr/libexec/PlistBuddy -c "add email string correo@correo.com" /Library/Managed\ Preferences/template.plist
 
+#Acceder a la ruta Managed Preferences (si no existe se debe crear la carpeta)
 cd /Library/Managed\ Preferences
 
-sudo touch mac_mdm_installconfig.sh
+#Crear carpeta Managed Preferences -- SI NO EXISTE
+sudo mkdir "/Library/Managed Preferences"
 
+#Crear ejecutable del script de Netskope (o descargarlo directamente desde repositorio https://github.com/JorgeNavas12/NSK/blob/main/mac_mdm_install.sh)
+sudo nano mac_mdm_installconfig.sh
+
+#Agregar permisos de ejecucion al archivo mac_mdm_installconfig.sh
 sudo chmod +x mac_mdm_installconfig.sh
 
+#Agregar permisos ejecucion xattr (si el comando falla no hay lio, seguir con el siguiente comando)
 sudo xattr -d com.apple.quarantine ./mac_mdm_installconfig.sh
 
+#Aplicar parametros al script de instalacion
 sudo ./mac_mdm_installconfig.sh 0 0 0 addon-avc.goskope.com UxIqTDfJsjfNHvY89k0 template.plist preference_email enrollauthtoken=51e40bf5ee382c42144cee2259c29249 enrollencryptiontoken=6a49196cbd72b232e3d1aef174ccda7e
 
+#Abrir ruta y descargar el instalador pkg, posteriomente ejecutar.
 open /Library/Managed\ Preferences
+curl -o NSClient.pkg https://download-avc.goskope.com/dlr/mac/get
