@@ -1,6 +1,6 @@
 sudo /usr/libexec/PlistBuddy -c "add email string dlopez@avalvc.com.co" /Library/Managed\ Preferences/template.plist
 
-cd /Library/Managed\ Preferences/
+cd /Library/Managed\ Preferences
 
 sudo touch mac_mdm_installconfig.sh
 
@@ -8,4 +8,4 @@ sudo xattr -d com.apple.quarantine ./mac_mdm_installconfig.sh
 
 sudo ./mac_mdm_installconfig.sh 0 0 0 addon-avc.goskope.com UxIqTDfJsjfNHvY89k0 <plist file name> preference_email enrollauthtoken=51e40bf5ee382c42144cee2259c29249 enrollencryptiontoken=6a49196cbd72b232e3d1aef174ccda7e
 
-open /Library/Managed Preferences
+open /Library/Managed\ Preferences
