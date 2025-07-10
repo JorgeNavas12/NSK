@@ -21,4 +21,4 @@ sudo ./mac_mdm_installconfig.sh 0 0 0 addon-<tenant>.goskope.com <token ID> temp
 
 #Abrir ruta y descargar el instalador pkg, posteriomente ejecutar.
 open /Library/Managed\ Preferences
-curl -o NSClient.pkg https://download-avc.goskope.com/dlr/mac/get
+curl -o NSClient.pkg https://download-<tenant url>.goskope.com/dlr/mac/get
